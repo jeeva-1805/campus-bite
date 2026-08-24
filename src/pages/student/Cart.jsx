@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Minus, Plus, Trash2, ArrowLeft } from "lucide-react";
 
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/useCart";
 
 function Cart() {
 const navigate = useNavigate();
@@ -49,7 +49,7 @@ const navigate = useNavigate();
 
       {/* Header */}
       <div className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
 
           <Link
             to="/menu"
@@ -59,11 +59,11 @@ const navigate = useNavigate();
             Back to Menu
           </Link>
 
-          <h1 className="mt-5 text-3xl font-bold">
+          <h1 className="mt-5 text-2xl font-bold sm:text-3xl">
             Your Cart
           </h1>
 
-          <p className="mt-2 text-slate-500">
+          <p className="mt-2 text-sm text-slate-500 sm:text-base">
             Review your items before placing the order.
           </p>
 
@@ -71,7 +71,7 @@ const navigate = useNavigate();
       </div>
 
       {/* Cart Content */}
-      <main className="mx-auto grid max-w-7xl gap-8 px-6 py-10 lg:grid-cols-3">
+      <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 sm:py-10 lg:grid-cols-3 lg:gap-8">
 
         {/* Items */}
         <div className="space-y-4 lg:col-span-2">
@@ -79,11 +79,11 @@ const navigate = useNavigate();
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-5 rounded-2xl border border-slate-200 bg-white p-5"
+              className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:gap-5 sm:p-5"
             >
 
               {/* Food Image */}
-              <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-4xl">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-3xl sm:h-24 sm:w-24 sm:text-4xl">
                 {item.image}
               </div>
 
@@ -104,36 +104,38 @@ const navigate = useNavigate();
 
               </div>
 
-              {/* Quantity */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between gap-3 sm:justify-normal">
+                {/* Quantity */}
+                <div className="flex items-center gap-3">
 
+                  <button
+                    onClick={() => decreaseQuantity(item.id)}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-100"
+                  >
+                    <Minus size={16} />
+                  </button>
+
+                  <span className="w-5 text-center font-semibold">
+                    {item.cartQuantity}
+                  </span>
+
+                  <button
+                    onClick={() => increaseQuantity(item.id)}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-100"
+                  >
+                    <Plus size={16} />
+                  </button>
+
+                </div>
+
+                {/* Remove */}
                 <button
-                  onClick={() => decreaseQuantity(item.id)}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-100"
+                  onClick={() => removeFromCart(item.id)}
+                  className="rounded-lg p-2 text-slate-400 hover:bg-red-50 hover:text-red-500"
                 >
-                  <Minus size={16} />
+                  <Trash2 size={18} />
                 </button>
-
-                <span className="w-5 text-center font-semibold">
-                  {item.cartQuantity}
-                </span>
-
-                <button
-                  onClick={() => increaseQuantity(item.id)}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-100"
-                >
-                  <Plus size={16} />
-                </button>
-
               </div>
-
-              {/* Remove */}
-              <button
-                onClick={() => removeFromCart(item.id)}
-                className="rounded-lg p-2 text-slate-400 hover:bg-red-50 hover:text-red-500"
-              >
-                <Trash2 size={18} />
-              </button>
 
             </div>
           ))}

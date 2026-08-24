@@ -16,7 +16,7 @@ function Home() {
       <Navbar />
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20">
 
         <div className="max-w-3xl">
 
@@ -25,7 +25,7 @@ function Home() {
             Skip the canteen queue
           </div>
 
-          <h1 className="text-5xl font-bold leading-tight tracking-tight text-slate-950 md:text-6xl">
+          <h1 className="text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl md:text-6xl">
             Your campus food,
             <br />
             <span className="text-orange-500">
@@ -33,28 +33,28 @@ function Home() {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Pre-order your favourite canteen food, check availability,
             and track your order without waiting in line.
           </p>
 
           {/* Search */}
-          <div className="mt-8 flex max-w-2xl items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
+          <div className="mt-8 flex max-w-2xl flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm sm:flex-row sm:items-center">
 
             <Search
-              className="ml-3 text-slate-400"
+              className="ml-3 hidden text-slate-400 sm:block"
               size={22}
             />
 
             <input
               type="text"
               placeholder="Search for food..."
-              className="flex-1 bg-transparent px-2 py-3 outline-none"
+              className="w-full bg-transparent px-3 py-3 outline-none sm:px-2"
             />
 
             <Link
               to="/menu"
-              className="rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white"
+              className="w-full rounded-xl bg-slate-950 px-6 py-3 text-center text-sm font-semibold text-white sm:w-auto"
             >
               Search
             </Link>
@@ -66,7 +66,7 @@ function Home() {
       </section>
 
       {/* Features */}
-      <section className="mx-auto grid max-w-7xl gap-5 px-6 pb-20 md:grid-cols-3">
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 pb-20 sm:px-6 md:grid-cols-3">
 
         <div className="rounded-2xl border border-slate-200 bg-white p-6">
           <ShoppingBag

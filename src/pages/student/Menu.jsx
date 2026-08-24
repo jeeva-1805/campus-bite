@@ -33,31 +33,31 @@ function Menu() {
 
       {/* Header */}
       <div className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-10">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10">
 
           <p className="text-sm font-semibold text-orange-500">
             TODAY'S MENU
           </p>
 
-          <h1 className="mt-2 text-4xl font-bold">
+          <h1 className="mt-2 text-3xl font-bold sm:text-4xl">
             What are you craving?
           </h1>
 
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-sm text-slate-500 sm:text-base">
             Choose from today's available canteen food.
           </p>
 
           {/* Search */}
-          <div className="mt-7 flex max-w-xl items-center gap-3 rounded-xl border bg-slate-50 px-4 py-3">
+          <div className="mt-7 flex max-w-xl items-center gap-3 rounded-xl border bg-slate-50 px-3 py-3 sm:px-4">
 
-            <Search size={20} className="text-slate-400" />
+            <Search size={20} className="shrink-0 text-slate-400" />
 
             <input
               type="text"
               placeholder="Search food..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-transparent outline-none"
+              className="w-full bg-transparent text-sm outline-none"
             />
 
           </div>
@@ -66,10 +66,10 @@ function Menu() {
       </div>
 
       {/* Main */}
-      <main className="mx-auto max-w-7xl px-6 py-10">
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10">
 
         {/* Categories */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
 
           {categories.map((category) => (
             <button
@@ -77,8 +77,8 @@ function Menu() {
               onClick={() => setSelectedCategory(category)}
               className={
                 selectedCategory === category
-                  ? "rounded-full bg-slate-950 px-5 py-2.5 text-sm font-medium text-white"
-                  : "rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                  ? "rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white sm:px-5 sm:py-2.5"
+                  : "rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 sm:px-5 sm:py-2.5"
               }
             >
               {category}
