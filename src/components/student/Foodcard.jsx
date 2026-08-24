@@ -1,4 +1,4 @@
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/useCart";
 
 function FoodCard({ food }) {
   const { addToCart } = useCart();
@@ -15,27 +15,27 @@ function FoodCard({ food }) {
         {food.image}
       </div>
 
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
 
-        <div className="flex items-start justify-between">
+        <div className="flex items-start justify-between gap-3">
 
           <div>
-            <h2 className="text-lg font-semibold">
+            <h2 className="text-base font-semibold sm:text-lg">
               {food.name}
             </h2>
 
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-1 text-xs text-slate-400 sm:text-sm">
               {food.category}
             </p>
           </div>
 
-          <p className="text-lg font-bold">
+          <p className="text-base font-bold sm:text-lg">
             ₹{food.price}
           </p>
 
         </div>
 
-        <div className="mt-5 flex items-center justify-between">
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
           <span className="text-sm text-slate-500">
             {food.quantity} available
@@ -44,7 +44,7 @@ function FoodCard({ food }) {
           <button
             type="button"
             onClick={handleAddToCart}
-            className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 sm:w-auto"
           >
             Add to Cart
           </button>

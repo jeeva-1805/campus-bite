@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle } from "lucide-react";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/useCart";
 
 function Checkout() {
  const { cartItems, cartTotal, placeOrder } = useCart();

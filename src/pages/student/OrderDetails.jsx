@@ -6,7 +6,7 @@ import {
   Package,
 } from "lucide-react";
 
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/useCart";
 
 function OrderDetails() {
   const { orderId } = useParams();
